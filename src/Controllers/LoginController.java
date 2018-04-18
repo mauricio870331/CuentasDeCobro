@@ -42,8 +42,8 @@ public final class LoginController implements ActionListener {
             try {
                 if (validarUsuario(lg.txtUser.getText(), lg.txtpass.getText())) {
                     lg.dispose();
-                    FrmPrincipal fp = new FrmPrincipal();
-                    PrincipalController pc = new PrincipalController(fp);
+                    FrmPrincipal fp = GetFrmPrincipal.getFrmPrincipal();
+                    GetController.getController("");
                     fp.setLocationRelativeTo(null);
                     fp.setVisible(true);
                 }else{

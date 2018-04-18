@@ -5,13 +5,16 @@
  */
 package App;
 
+import Controllers.GetController;
+import Controllers.GetFrmPrincipal;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -26,10 +29,25 @@ public class BuscarClientes extends javax.swing.JDialog {
      * @param parent
      */
     private ArrayList<String> objectstemp;
+    private FrmPrincipal frm = GetFrmPrincipal.getFrmPrincipal();
 
     public BuscarClientes(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        tblClientes.addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
+            public void mouseClicked(java.awt.event.MouseEvent e) {
+                if (e.getClickCount() == 2) {
+                    int fila = tblClientes.getSelectedRow();
+                    if (fila >= 0) {
+                        String objeto = tblClientes.getValueAt(fila, 0).toString() + "," + tblClientes.getValueAt(fila, 1).toString();
+                        frm.txtCLienteCuenta.setText(tblClientes.getValueAt(fila, 2).toString() + " " + tblClientes.getValueAt(fila, 3).toString());
+                        GetController.getController(objeto);
+                        dispose();
+                    }
+                }
+            }
+        });
     }
 
     /**
@@ -203,6 +221,7 @@ public class BuscarClientes extends javax.swing.JDialog {
         return modelo;
     }
 
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnBuscarClientes;
     private javax.swing.JLabel jLabel1;
@@ -212,4 +231,5 @@ public class BuscarClientes extends javax.swing.JDialog {
     public javax.swing.JTable tblClientes;
     public javax.swing.JTextField txtDato;
     // End of variables declaration//GEN-END:variables
+
 }

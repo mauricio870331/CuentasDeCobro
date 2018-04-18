@@ -254,7 +254,9 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
         jLabel13.setText("Telefonos:");
 
-        txtCLienteCuenta.setEnabled(false);
+        txtCLienteCuenta.setEditable(false);
+
+        txtNombres1.setEditable(false);
 
         txtTel1.setAutoscrolls(true);
         txtTel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());

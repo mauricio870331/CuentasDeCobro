@@ -24,11 +24,13 @@ public final class PrincipalController implements ActionListener {
 
     FrmPrincipal fp;
     ArrayList<String> telefonos = new ArrayList();
+    String ObjecClient = "";
 
-    public PrincipalController(FrmPrincipal fp) throws IOException {
-        this.fp = fp;
+    public PrincipalController(String Objeto) throws IOException {
+        this.fp = GetFrmPrincipal.getFrmPrincipal();
         iniComponents();
         cargarusuarios();
+        ObjecClient = Objeto;
     }
 
     public void iniComponents() {
@@ -73,8 +75,7 @@ public final class PrincipalController implements ActionListener {
             }
             limpiarFormClientes();
         }
-        
-        
+
         //********************************//
         //Cuentas//
         if (e.getSource() == fp.btnFindCliente) {
