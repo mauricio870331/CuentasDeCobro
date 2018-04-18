@@ -24,13 +24,15 @@ public final class PrincipalController implements ActionListener {
 
     FrmPrincipal fp;
     ArrayList<String> telefonos = new ArrayList();
-    String ObjecClient = "";
+    private String ObjecClient = "";
+    
+    
 
-    public PrincipalController(String Objeto) throws IOException {
+    public PrincipalController() throws IOException {
         this.fp = GetFrmPrincipal.getFrmPrincipal();
         iniComponents();
         cargarusuarios();
-        ObjecClient = Objeto;
+        
     }
 
     public void iniComponents() {
@@ -98,6 +100,14 @@ public final class PrincipalController implements ActionListener {
         fp.txtDir.setText("");
         fp.txtCorreo.setText("");
         fp.txtTel.setText("");
+    }
+
+    public String getObjecClient() {
+        return ObjecClient;
+    }
+
+    public void setObjecClient(String ObjecClient) {
+        this.ObjecClient = ObjecClient;
     }
 
 }

@@ -7,13 +7,10 @@ package App;
 
 import Controllers.GetController;
 import Controllers.GetFrmPrincipal;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 
@@ -27,11 +24,9 @@ public class BuscarClientes extends javax.swing.JDialog {
      * Creates new form BuscarClieentes
      *
      * @param parent
+     * @param modal
      */
-    private ArrayList<String> objectstemp;
-    private FrmPrincipal frm = GetFrmPrincipal.getFrmPrincipal();
-
-    public BuscarClientes(java.awt.Frame parent, boolean modal) {
+       public BuscarClientes(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
         tblClientes.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -41,8 +36,9 @@ public class BuscarClientes extends javax.swing.JDialog {
                     int fila = tblClientes.getSelectedRow();
                     if (fila >= 0) {
                         String objeto = tblClientes.getValueAt(fila, 0).toString() + "," + tblClientes.getValueAt(fila, 1).toString();
-                        frm.txtCLienteCuenta.setText(tblClientes.getValueAt(fila, 2).toString() + " " + tblClientes.getValueAt(fila, 3).toString());
-                        GetController.getController(objeto);
+                        GetFrmPrincipal.getFrmPrincipal().txtCLienteCuenta.setText(tblClientes.getValueAt(fila, 2).toString() + " " + tblClientes.getValueAt(fila, 3).toString());
+                        GetController.getController().setObjecClient(objeto);
+//                        System.out.println(GetController.getController().getObjecClient());
                         dispose();
                     }
                 }

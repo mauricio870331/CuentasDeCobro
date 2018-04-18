@@ -7,22 +7,24 @@ package Controllers;
 
 import App.FrmPrincipal;
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  * @author clopez
  */
 public class GetController {
-    
-     public static PrincipalController pc = null;
-    
-    public static PrincipalController getController(String Objeto) {
-        try {
-            if (pc == null) {
-                pc = new PrincipalController(Objeto);
-            } 
-        } catch (IOException e) {
-            System.out.println("error = " + e);
+
+    public static PrincipalController pc = null;
+
+    public static PrincipalController getController() {
+        if (pc == null) {
+            try {
+                pc = new PrincipalController();
+            } catch (IOException ex) {
+                System.out.println("error " + ex);
+            }
         }
         return pc;
     }
