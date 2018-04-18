@@ -119,10 +119,8 @@ public class BuscarClientes extends javax.swing.JDialog {
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addGap(0, 199, Short.MAX_VALUE)))
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 395, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1))
                         .addContainerGap())))
         );
         layout.setVerticalGroup(
@@ -208,8 +206,8 @@ public class BuscarClientes extends javax.swing.JDialog {
         FileReader f = new FileReader(ruta);
         BufferedReader b = new BufferedReader(f);
         while ((cadena = b.readLine()) != null) {
-            String[] objeto = cadena.split(",");
-            if (objeto[1].equals(Dato) || objeto[2].equalsIgnoreCase(Dato) || objeto[3].equalsIgnoreCase(Dato)) {
+            String[] objeto = cadena.split(",");            
+            if (objeto[1].toLowerCase().contains(Dato.toLowerCase()) || objeto[2].toLowerCase().contains(Dato.toLowerCase())  || objeto[3].toLowerCase().contains(Dato.toLowerCase())) {
                 columna[0] = Integer.parseInt(objeto[0]);
                 columna[1] = objeto[1];
                 columna[2] = objeto[2];
