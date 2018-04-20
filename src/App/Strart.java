@@ -6,6 +6,7 @@
 package App;
 
 import Controllers.LoginController;
+import Modelo.Conexion;
 import com.jtattoo.plaf.acryl.AcrylLookAndFeel;
 import java.util.Properties;
 import javax.swing.UIManager;
@@ -18,18 +19,19 @@ import javax.swing.UnsupportedLookAndFeelException;
 public class Strart {
 
     public static void main(String[] args) {
-        try {
-            Properties props = new Properties();
-            props.put("logoString", "M-Systems");
-            AcrylLookAndFeel.setCurrentTheme(props);
-            UIManager.setLookAndFeel("com.jtattoo.plaf.acryl.AcrylLookAndFeel");
-        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException e) {
-            System.out.println("error " + e);
-        }
-        Login lg = new Login();
-        LoginController loginController = new LoginController(lg);
-        lg.setLocationRelativeTo(null);
-        lg.setVisible(true);
+//        try {
+//            Properties props = new Properties();
+//            props.put("logoString", "M-Systems");
+//            AcrylLookAndFeel.setCurrentTheme(props);
+//            UIManager.setLookAndFeel("com.jtattoo.plaf.acryl.AcrylLookAndFeel");
+//        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException e) {
+//            System.out.println("error " + e);
+//        }
+//        Login lg = new Login();
+//        LoginController loginController = new LoginController(lg);
+//        lg.setLocationRelativeTo(null);
+//        lg.setVisible(true);
+//        Conexion.getConexion();
     }
 
 }
